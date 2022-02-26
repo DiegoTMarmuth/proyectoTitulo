@@ -18,7 +18,7 @@ class Welcome extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
-	public function index()
+	/*public function index()
 	{
 		if($this->session->userdata('logged_in')) {
 		$this->load->view('header');
@@ -30,5 +30,17 @@ class Welcome extends CI_Controller {
 			redirect('','refresh');
 
 		}
+	}*/
+	
+	public function index()
+	{
+		$this->load->view('portada/index.php');
 	}
+
+	public function galeria()
+	{
+		$data['galeria'] =   $this->Clase_Subir_Archivo->mostrar_imagenes_carrusel();
+		$this->load->view('portada/galeria.php',$data);
+	}
+
 }

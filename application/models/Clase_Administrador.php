@@ -20,14 +20,7 @@ class Clase_Administrador extends CI_Model
 		$query = $this->db->get();
 		return $query->result_array();
 	}
-	public function obtenerImagenes()
-	{
-		$this->db->select();
-		$this->db->from('proyecto');
-		$this->db->order_by("Ano_Creacion", "DESC");
-		$query = $this->db->get();
-		return $query->result_array();
-	}
+	
 	function login($username, $password) {
 		
 		$this->db->select('Cuenta, Password');
@@ -48,9 +41,10 @@ class Clase_Administrador extends CI_Model
 		}
   
 	  }
-
+	  /*obtener actividad de TODOS LOS dispositivos*/
 	  public function  obtenerActividadDispositivos()
 	{
+		
 		$this->db->select();
 		$this->db->from('actividad');
 		$this->db->where('Id_Proyecto',1);

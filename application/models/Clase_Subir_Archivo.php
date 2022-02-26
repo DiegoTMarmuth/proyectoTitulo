@@ -10,21 +10,11 @@ class Clase_Subir_Archivo extends CI_Model
 	{
 		parent::__construct();
 	}
-
-    public function obtenerProyectos()
-	{
-
-		$this->db->select();
-		$this->db->from('proyecto');
-		$this->db->order_by("Ano_Creacion", "DESC");
-		$query = $this->db->get();
-		return $query->result_array();
-	}
 	public function subir_imagen_paginainicial($imagen)
 	{
         $data =array(
             'Ruta' => $imagen,
-            'Lugar' => 0
+            'Lugar' => 1
         );
         return $this->db->insert('imagenes',$data);
 	}
@@ -42,7 +32,7 @@ class Clase_Subir_Archivo extends CI_Model
         $this->db->select();
 		$this->db->from('imagenes');
         //$this->db->where('Ruta','Like' ,'%uploads%');
-		$this->db->where('Lugar',0);
+		$this->db->where('Lugar',1);
 		$query = $this->db->get();
 		return $query->result_array();
        

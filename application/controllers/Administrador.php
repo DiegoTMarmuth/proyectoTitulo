@@ -10,19 +10,22 @@ class Administrador extends CI_Controller {
 	}
 	public function index()
 	{
-		$this->load->view('portada/index.php');
-	}
-	public function galeria()
-	{
-		$data['galeria'] =   $this->Clase_Subir_Archivo->mostrar_imagenes_carrusel();
-		$this->load->view('portada/galeria.php',$data);
-	}
+		if($this->session->userdata('logged_in')) {
+		$this->load->view('header');
+		$this->load->view('menu_administrador');
+		//body
+		$this->load->view('footer');
+		}
+		else{
+			redirect('','refresh');
 
+		}
+	}
 	public function administrar_pagina_inicial()
 	{
 		//$this->load->view('welcome_message');
 		if($this->session->userdata('logged_in')) {
-			$data['menu']  =  'Inicio';
+		$data['menu']  =  'Inicio';
 		$data['submenu']  =  'PaginaI';
 		$data['include_js'] =  array('pagina_inicial.js');
 		$data['carrusel'] =   $this->Clase_Subir_Archivo->mostrar_imagenes_carrusel();
@@ -58,28 +61,13 @@ class Administrador extends CI_Controller {
 	
 	}
 
-	public function proyectos()
-	{
-		if($this->session->userdata('logged_in')) {
-		$data['menu']  =  'Inicio';
-		$data['submenu']  =  'PaginaG';
-		$data['include_js'] =  array('proyectos.js');
-		$this->load->view('header');
-		$this->load->view('menu_administrador',$data);
-		$this->load->view('Administrador/proyectos');
-		$this->load->view('footer',$data);
-		}
-			else{
-				redirect('','refresh');
-
-			}
-	}
+	
 	public function informe_dispositivos()
 	{
 		//$this->load->view('welcome_message');
 		if($this->session->userdata('logged_in')) {
-		$data['menu']  =  'Inicio';
-		$data['submenu']  =  'PaginaG';
+		$data['menu']  =  'PaginaInforme';
+		//$data['submenu']  =  'PaginaG';
 		$data['include_plugin'] = array("chartjs/Chart.js","chartjs/Chart.min.js");
 		$data['include_js'] =  array('informeDispositivos.js');
 		$años= $this->Clase_Administrador->obtenerActividadDispositivos();
@@ -109,7 +97,24 @@ class Administrador extends CI_Controller {
 		}
 	}
 
-	public function get_imagenes()
+	public function proyectos()
+	{
+		if($this->session->userdata('logged_in')) {
+		$data['menu']  =  'PaginaProyectos';
+		//$data['submenu']  =  'PaginaG';
+		$data['include_js'] =  array('proyectos.js');
+		$this->load->view('header');
+		$this->load->view('menu_administrador',$data);
+		$this->load->view('Administrador/proyectos');
+		$this->load->view('footer',$data);
+		}
+			else{
+				redirect('','refresh');
+
+			}
+	}
+
+	/*public function get_imagenes()
 	{
 		//$this->load->view('welcome_message');
 	
@@ -127,7 +132,7 @@ class Administrador extends CI_Controller {
 			redirect('','refresh');
 
 		}
-	}
+	}*/
 
 	public function getTablaProyectos()
 	{

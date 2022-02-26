@@ -1,12 +1,11 @@
 
 </div>
-<footer class="main-footer">
+<!--<footer class="main-footer">
     <div class="pull-right hidden-xs">
       <b>Version</b> 2.4.0
     </div>
    
-  </footer>
-
+  </footer>-->
   </div>
   <?php if(isset($error)){ echo $error;}?>
 <!-- ./wrapper -->

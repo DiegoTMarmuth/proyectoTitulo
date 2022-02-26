@@ -46,8 +46,8 @@
 <button type="button" class="nav-toggle"><i class="bx bx-menu"></i></button>
 <nav class="nav-menu">
   <ul>
-    <li class="active"><a href="<?php echo base_url()?>Administrador" class="scrollto">Inicio</a></li>
-    <li><a href="<?php echo base_url()?>Administrador/galeria" class="scrollto">Galeria</a></li>
+    <li class="active"><a href="<?php echo base_url()?>Welcome" class="scrollto">Inicio</a></li>
+    <li><a href="<?php echo base_url()?>Welcome/galeria" class="scrollto">Galeria</a></li>
     <li><a href="<?php echo base_url()?>Login" class="scrollto">Ingresar</a></li>
   </ul>
 </nav><!-- .nav-menu -->

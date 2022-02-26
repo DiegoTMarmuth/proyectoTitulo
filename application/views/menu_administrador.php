@@ -30,7 +30,7 @@
             <a href="<?php echo base_url()?>Administrador/administrar_galeria"><i class="fa fa-circle-o"></i> Imagenes galeria</a></li>
           </ul>
         </li>
-        <li>
+        <li class="<?php if(isset($menu) && ($menu == "PaginaInforme")) echo "active"; ?>">
           <a href="<?php echo base_url()?>Administrador/informe_dispositivos">
             <i class="fa fa-th"></i> <span>Informe dispositivos</span>
             <span class="pull-right-container">
@@ -39,7 +39,7 @@
           </a>
         </li>
 
-        <li>
+        <li class="<?php if(isset($menu) && ($menu == "PaginaProyectos")) echo "active"; ?>">
           <a href="<?php echo base_url()?>Administrador/proyectos">
             <i class="fa fa-th"></i> <span>proyectos dispositivos</span>
             <span class="pull-right-container">
